@@ -1,0 +1,69 @@
+<html>
+@args String title, String who
+<head>
+<title>@title</title>
+</head>
+<body>
+<h1>@_app.name() - @title</h1>
+<p>
+  Hello @who
+</p>
+<ul>
+  @def opt(String engine) {
+  <li>
+    <a href="/@(engine.toLowerCase())?who=@engine">Say hello in @engine</a>
+  </li>
+  }
+  @def optInline(String engine) {
+  <li>
+    <a href="/@(engine.toLowerCase())/inline">Say hello inline @engine</a>
+  </li>
+  }
+  @def optError(String engine) {
+  <li>
+    <a href="/@(engine.toLowerCase())/error">Trigger error in @engine template</a>
+  </li>
+  }
+  @def optRuntimeError(String engine) {
+  <li>
+    <a href="/@(engine.toLowerCase())/error/runtime">Trigger runtime error in @engine template</a>
+  </li>
+  }
+
+  @opt("Beetl")
+  @opt("FreeMarker")
+  @opt("Velocity")
+  @opt("Mustache")
+  @opt("Thymeleaf")
+  <li>---</li>
+  @optInline("Rythm")
+  @optInline("Beetl")
+  @optInline("FreeMarker")
+  @optInline("Velocity")
+  @optInline("Mustache")
+  @optInline("Thymeleaf")
+
+  @if(_app.isDev()) {
+  <li>---</li>
+  @optError("Rythm")
+  @optError("Beetl")
+  @optError("FreeMarker")
+  @optError("Velocity")
+  @optError("Mustache")
+  @optError("Thymeleaf")
+  }
+  <li>---</li>
+  @optRuntimeError("Rythm")
+  @optRuntimeError("Beetl")
+  @optRuntimeError("FreeMarker")
+  @optRuntimeError("Velocity")
+  @optRuntimeError("Mustache")
+  @optRuntimeError("Thymeleaf")
+  <li>---</li>
+  <li>
+    <a href="/e500">Demonstrate backend server error reporting on dev mode</a>
+  </li>
+</ul>
+</body>
+
+</html>

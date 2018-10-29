@@ -1,0 +1,23 @@
+<html>
+@args String title, String who
+<head>
+<title>@title</title>
+</head>
+<body>
+<h1>@title</h1>
+<p>
+  Hello @wh0
+</p>
+<ul>
+  @def opt(String engine) {
+  <li>
+    <a href="/@(engine.toLowerCase())?who=@engine">Say hello in @engine</a>
+  </li>
+  }
+  @opt("Beetl")
+  @opt("FreeMarker")
+  @opt("Velocity")
+</ul>
+</body>
+
+</html>

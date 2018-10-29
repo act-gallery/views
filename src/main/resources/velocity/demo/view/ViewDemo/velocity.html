@@ -1,0 +1,72 @@
+<html>
+<head>
+  <title>${title}</title>
+</head>
+<body>
+<h1>${_app.name()} - ${title}</h1>
+<p>
+  Hello ${who}
+</p>
+<ul>
+  #macro(opt $engine)
+  <li>
+    <a href="/${engine.toLowerCase()}?who=${engine}">Say hello in ${engine}</a>
+  </li>
+  #end
+
+  #macro(optInline $engine)
+  <li>
+    <a href="/${engine.toLowerCase()}/inline">Say hello inline ${engine}</a>
+  </li>
+  #end
+
+  #macro(optError $engine)
+  <li>
+    <a href="/${engine.toLowerCase()}/error">Trigger error in ${engine} template</a>
+  </li>
+  #end
+
+  #macro(optErrorRuntime $engine)
+  <li>
+    <a href="/${engine.toLowerCase()}/error/runtime">Trigger runtime error in ${engine} template</a>
+  </li>
+  #end
+
+  #opt("Rythm")
+  #opt("Beetl")
+  #opt("FreeMarker")
+  #opt("Mustache")
+  #opt("Thymeleaf")
+  <li>---</li>
+
+  #optInline("Rythm")
+  #optInline("Beetl")
+  #optInline("FreeMarker")
+  #optInline("Velocity")
+  #optInline("Mustache")
+  #optInline("Thymeleaf")
+  #if ($_app.isDev())
+  <li>---</li>
+  #optError("Rythm")
+  #optError("Beetl")
+  #optError("FreeMarker")
+  #optError("Mustache")
+  #optError("Velocity")
+  #optError("Thymeleaf")
+  #end
+
+  <li>---</li>
+  #optErrorRuntime("Rythm")
+  #optErrorRuntime("Beetl")
+  #optErrorRuntime("FreeMarker")
+  #optErrorRuntime("Mustache")
+  #optErrorRuntime("Velocity")
+  #optErrorRuntime("Thymeleaf")
+  <li>---</li>
+  <li>
+    <a href="/e500">Demonstrate backend server error reporting on dev mode</a>
+  </li>
+</ul>
+</body>
+
+</html>
