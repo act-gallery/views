@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>view-demo</artifactId>
-  <version>1.8.29</version>
+  <version>1.9.0</version>
 
   <name>actframework app demo - hello world</name>
   <description>demonstrate a minimal hello world application for actframework</description>
@@ -34,15 +34,10 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.29.0</version>
+    <version>1.9.0.1</version>
   </parent>
 
   <dependencies>
-
-    <dependency>
-      <groupId>org.actframework</groupId>
-      <artifactId>act</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>org.actframework</groupId>
